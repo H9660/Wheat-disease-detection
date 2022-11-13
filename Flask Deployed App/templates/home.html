@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css">
+
+    <title> 
+Plant Disease Detection
+</title>
+    <style>
+        .bg {
+
+            background-image: url("images/background.jpeg");
+
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .file-upload input[type='file'] {
+            display: none;
+        }
+
+        body {
+            background-color: #4ECC5A;
+            /* background: -webkit-linear-gradient(to right, #66a776, #043610);
+            background: linear-gradient(to right, #5d9c6a, #059b0d); */
+            height: 100vh;
+        }
+
+        .rounded-lg {
+            border-radius: 1rem;
+        }
+
+        .custom-file-label.rounded-pill {
+            border-radius: 50rem;
+        }
+
+        .custom-file-label.rounded-pill::after {
+            border-radius: 0 50rem 50rem 0;
+        }
+
+        label {
+            background-color: rgb(2, 46, 15);
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        #file-chosen {
+            margin-left: 0.3rem;
+            font-family: sans-serif;
+        }
+
+        .footer-basic {
+            padding: 40px 0;
+            background-color: #042908;
+            color: #f1f3f5;
+        }
+
+        .footer-basic ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .footer-basic li {
+            padding: 0 10px;
+        }
+
+        .footer-basic ul a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-basic ul a:hover {
+            opacity: 1;
+        }
+
+        .footer-basic .social {
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .footer-basic .social>a {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin: 0 8px;
+            color: inherit;
+            opacity: 0.75;
+        }
+
+        .footer-basic .social>a:hover {
+            opacity: 0.9;
+        }
+
+        .footer-basic .copyright {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#05380b;">
+            <!-- <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="navbar-brand active">
+                        <a class="nav-link" href="/" style="color: white;">Home</a>
+                    </li>
+                    <li class="navbar-brand active">
+                        <a class="nav-link" href="/index" style="color: white;">AI Engine</a>
+                    </li>
+                    <li class="navbar-brand">
+                        <a class="nav-link" href="/market" style="color: white;">Supplements</a>
+                    </li>
+                    <li class="navbar-brand">
+                        <a class="nav-link"
+                            href="https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=eu-gb&integrationID=c23fb493-dd54-4c4a-8e8f-2a44ab61d32a&serviceInstanceID=00143b47-a0e2-4221-8294-acd26fe1c834"
+                            target="_blank" style="color: white;">KrsikX Doc🤖</a>
+                    </li>
+                    <li class="navbar-brand">
+                        <a class="nav-link" href="/contact" style="color: white;">Contact-Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+<style>
+  body{
+    overflow-x: hidden;
+  }
+  @media only screen and (max-width: 830px) {
+    .laptop{
+      display: none;
+    }
+  }
+  @media (min-width:830px) and (max-width: 1536px){
+    .mobile{
+      display: none;
+    }
+  }
+</style>
+<div class='mobile p-5'>
+  <div class="row mb-5 text-center text-white">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color:red;"><b>Important !!</b></h1>
+      <p class="lead" style="font-weight: 500;color: black;">We are extermly sorry 🙏 but currently this web-application will not available in mobile devices. For mobile device we are working 🤝 on mobile application so be with us.We are on it 🔥.<br> 
+        For information you can access our chatbot <b>KrsikX Doc</b>🤖. <br>
+        That will help you get information about disease , prevention.<br>
+        Contact the <b>Developers</b> for any queries.
+      </p>
+
+      <center>
+          <a target="_blank" href="https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=eu-gb&integrationID=c23fb493-dd54-4c4a-8e8f-2a44ab61d32a&serviceInstanceID=00143b47-a0e2-4221-8294-acd26fe1c834">
+          <button class = "bttn-pill bttn-lg btn-info"><b style="color: black;">KrsikX Doc🤖</b></button>
+      </a>
+      </center>
+      <p class="lead" style="font-weight: 500;color: black;">❤️Thank You For Visiting❤️</p>    
+    </div>
+</div>
+</div>
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>🍁Plant Disease
+                Detection🍁 </b></h1>
+        <p class="lead" style="font-weight: 500;color: black;">This AI Engine Will Help To Detect Disease From Following Fruits And Veggies</p>
+    </div>
+</div>
+
+<center class="laptop">
+    <a href="/index">
+    <button class = "bttn-pill bttn-lg btn-success"><b style="color: black;">AI Engine</b></button>
+</a>
+</center>
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+          <img src="https://www.world-grain.com/ext/resources/2022/06/22/Wheat_photo-cred-Adobe-stock_E-2.jpg?t=1655908254&width=1080" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Wheat</p></center>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://www.supermarketperimeter.com/ext/resources/0430-blueberries.png?t=1588260305&width=1080" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Blueberry</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/health_benefits_of_cherries_slideshow/1800x1200_health_benefits_of_cherries_slideshow.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Cherry</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://www.mayoclinichealthsystem.org/-/media/national-files/images/hometown-health/2018/corn.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Corn</p></center>
+        </div>
+    </div>
+</div>
+
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+          <img src="https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Grape</p></center>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://www.irishtimes.com/polopoly_fs/1.3923226.1560339148!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Orange</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/the_health_benefits_of_peaches_slideshow/thinkstock_rf_peaches.jpg?resize=650px:*" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Peach</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/seasonal-produce/2018-05/bell%20peppers.jpg?h=9f30bee3&itok=PKmzyeNv" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Pepper Bell</p></center>
+        </div>
+    </div>
+</div>
+
+
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+          <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Potato</p></center>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/326/326272/raspberries-with-ketones-in-a-bowl.jpg?w=1155&h=1541" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Raspberry</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://m.economictimes.com/thumb/msid-66988154,width-1200,height-900,resizemode-4,imgsize-211276/soyabean-agencies.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Soybean</p></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 92%;">
+
+          <img src="https://post.healthline.com/wp-content/uploads/2020/08/squash-fruit-or-vegetable-732x549-thumbnail-732x549.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Squash</p></center>
+        </div>
+    </div>
+</div>
+
+<center class="laptop">
+<div class="row p-5">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 45%;height: 92%;">
+          <img src="https://images.indianexpress.com/2020/02/strawberry-1200.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Strawberry</p></center>
+        </div>
+    </div>
+    <div class="col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 45%;height: 92%;">
+
+          <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato</p></center>
+        </div>
+    </div>
+
+     <div class="col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 45%;height: 92%;">
+
+          <img src="https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg" width="250" height="250">
+          <center><p class="lead" style="font-weight: 500;color: black;">Apple</p></center>
+        </div>
+    </div>
+</div>
+</center>
+
+
+    <div id='footer'>
+        <div class="footer-basic">
+            <footer>
+                <center>
+                    <div style="padding: 5;">
+                        <a target="_blank" href='mailto:krsikx@gmail.com'><img
+                                src="https://image.flaticon.com/icons/png/512/281/281769.png" height="40"
+                                width="40"></a>&nbsp
+                        <a target="_blank" href="https://www.instagram.com/krsikx_india/"><img
+                                src="https://image.flaticon.com/icons/png/512/174/174855.png" height="40"
+                                width="40"></a>&nbsp
+                        <a target="_blank" href="https://www.linkedin.com/company/krsikx-india-llp/"><img
+                                src="https://image.flaticon.com/icons/png/512/174/174857.png" height="40"
+                                width="40"></a>&nbsp
+                    </div>
+                </center>
+                <br>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="/">Home</a></li>
+                    <li class="list-inline-item"><a target="_blank" href="https://www.krsikx.com/">Services</a></li>
+                    <li class="list-inline-item"><a target="_blank"
+                            href="https://www.krsikx.com/copy-of-solutions">About</a></li>
+                    <li class="list-inline-item laptop"><a href="/index">AI Engine</a></li>
+                    <li class="list-inline-item"><a href="/contact">Developers</a></li>
+                </ul>
+                <p class="copyright">Created by Manthan Bhikadiya & Krishna Baldaniya</p>
+            </footer>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </div>
+</body>
+<!-- <script>
+    if (window.matchMedia("(max-width: 767px)").matches)
+    {
+        // The viewport is less than 768 pixels wide
+        document.write("This is a mobile device.");
+        window.location.replace('/mobile-device');
+
+    } else {
+        
+        // The viewport is at least 768 pixels wide
+        document.write("This is a tablet or desktop.");
+    }
+</script> -->
+<!-- <script>
+    if(screen.width <= 700){
+        document.location = 'manthan2.html';
+    }
+</script> -->
+
+</html>
